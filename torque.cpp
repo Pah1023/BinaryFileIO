@@ -19,7 +19,7 @@ BlFunctionDefIntern(tsf_BlCon__getVariable);
 BlFunctionDefIntern(tsf_BlDictionary__addVariable);
 BlFunctionDefIntern(tsf_BlSim__findObject_name);
 BlFunctionDefIntern(tsf_BlStringStack__getArgBuffer);
-
+BlFunctionDefIntern(tsf_Con__getReturnBuffer);
 char* tsf_GetIntArg(signed int value)
 {
 	char* ret = tsf_BlStringStack__getArgBuffer(16);
@@ -187,7 +187,7 @@ bool tsf_InitInternal()
 	BlScanFunctionHex(tsf_BlDictionary__addVariable, "8B 44 24 04 56 57 8B F9");
 	BlScanFunctionHex(tsf_BlSim__findObject_name, "57 8B F9 8A 17");
 	BlScanFunctionHex(tsf_BlStringStack__getArgBuffer, "55 8B EC 83 E4 F8 8B 0D ? ? ? ? A1 ? ? ? ? 56 57 8B 7D 08 8D 14 01 03 D7 3B 15 ? ? ? ? 72 2C 8B 0D");
-
+	BlScanFunctionHex(tsf_Con__getReturnBuffer, "81 F9 ? ? ? ? 76 2B");
 	ADDR BlScanHex(tsf_mCacheSequenceLoc, "FF 05 ? ? ? ? B9 ? ? ? ? 8B F8 E8 ? ? ? ? 8B 44 24 1C 89 47 18 8B 44 24 14");
 	ADDR BlScanHex(tsf_mCacheAllocatorLoc, "89 35 ? ? ? ? C7 06 ? ? ? ? A1 ? ? ? ? 68 ? ? ? ? C7 40 ? ? ? ? ? E8 ? ? ? ? 83 C4 04 8B 4D F4 64 89 0D ? ? ? ? 59 5E 8B E5 5D C3");
 	ADDR BlScanHex(tsf_gIdDictionaryLoc, "89 15 ? ? ? ? E8 ? ? ? ? 8B F0 89 75 F0");

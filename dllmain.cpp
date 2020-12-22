@@ -81,10 +81,13 @@ const char* TS_FileObject__readBytes(ADDR obj, int argc, const char* argv[]) {
     char* buff = new char[count * 2 + 1] {0};
     for (int i = 0; i < count; i++) {
         int c = mFileBuffer[*mCurPos + i];
-        buff[i * 2] = hex[c & 0xF];
-        buff[i * 2 + 1] = hex[(c >> 4)&0xF];
+        buff[i * 2 + 1] = hex[c & 0xF];
+        buff[i * 2] = hex[(c >> 4)&0xF];
     }
     *mCurPos += count;
+    //char* retBuff = tsf_Con__getReturnBuffer(strlen(buff) + 1);
+    //retBuff[strlen(buff)] = 0;
+    //strcpy_s(retBuff, strlen(buff), buff);
     return buff;
 }
 

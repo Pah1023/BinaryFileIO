@@ -57,3 +57,4 @@ BlFunctionDefExtern(void, __thiscall, tsf_BlDictionary__addVariable, ADDR*, cons
 BlFunctionDefExtern(ADDR*, __thiscall, tsf_BlSim__findObject_name, const char*);
 BlFunctionDefExtern(char*, __stdcall, tsf_BlStringStack__getArgBuffer, unsigned int);
 
+BlFunctionDefExtern(char*, __fastcall, tsf_Con__getReturnBuffer, unsigned int);
